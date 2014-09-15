@@ -8,10 +8,11 @@ a:hover {text-decoration:none;color:#808285;}
 a:active {text-decoration:none;color:#808285;}
 
 a.hidden_link {
-	margin: 5px 15px 5px 15px;
+	margin: 6px 5px 5px 5px;
 	color:#03a9f4;
 	font-size: 18px;
 	font-weight: 300;
+	font-family: 'Roboto Condensed', sans-serif;
 }
 
 /*Classes*/
@@ -26,15 +27,29 @@ a.hidden_link {
 	padding: 16px 0px 0px 0px;
 	height: 50px;
 }
+.hidden_info {
+	color: #808285;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 100; 
+    font-size: 18px;
+	margin: -15px 0px 35px 0px;
+	padding: 10px 10px 10px 10px;
+	text-align: left;
+	display: none;
+}
 .info_box {
 	background-color: #EAEAEA;
     font-family: 'Roboto Slab', serif;
-    font-weight: 200; 
+    font-weight: 300; 
     font-size: 20px;
 	margin: 15px 0px 60px 0px;
 	padding: 25px 15px 25px 15px;
 	text-align: left;
 	border-radius: 5px;
+}
+.info_toggle {
+	cursor: pointer;
+	font-family: 'Roboto Condensed', sans-serif;
 }
 .main_box {
 	color: #424242;
@@ -46,12 +61,16 @@ a.hidden_link {
 }
 .nav {
 	text-align: center;
-	margin: 0px 0px 10px 0px;
+	margin: 0px 0px 0px 0px;
+	padding-bottom: 10px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #EAEAEA;
 }
 .nav_link {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     font-weight: 300; 
-    font-size: 125%;
+    font-size: 100%;
     color:#808285;
 }
 .sample_image {
@@ -70,17 +89,36 @@ a.hidden_link {
     font-size: 300%;
     margin: 0px 0px 5px 0px;
 }
-
+#download_link.info_box {
+	font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300; 
+    font-size: 300%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 250px;
+    background-color: #EAEAEA;
+    border-radius: 5px;
+    padding: 25px 15px 25px 15px;
+    width: 90%;
+}
+#back_button.info_box {
+	font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300; 
+    font-size: 150%;
+	color: #424242;
+}
 
 /*Elements*/
 
 h2 {
-	font-family: 'Roboto Condensed', serif;
+	font-family: 'Roboto Condensed', sans-serif;
     font-weight: bold; 
     font-size: 200%;
 }
 p {
     font-family: 'Roboto Slab', serif;
-    font-weight: 200; 
+    font-weight: 300; 
     font-size: 20px;
 }
+

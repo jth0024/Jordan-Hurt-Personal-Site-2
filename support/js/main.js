@@ -1,5 +1,6 @@
 //Jordan Hurt
 //Last Modified: 9/11/2014
+var hidden = true;
 
 $(document).ready(function() {
 	//Attach the correct style-sheet based on screen dimensions
@@ -13,19 +14,38 @@ $(document).ready(function() {
 	//Hide all display: none elements and change to display: visible for toggling	
 	$(".hidden").hide();
 	$(".hidden").css("display", "visible");
+	$(".hidden_info").hide();
+	$(".hidden_info").css("display", "visible");
 
 	//Attach click handlers to social and resume buttons
 	$("#social").on("click", function(){
 		$("#resume_links").slideUp("fast");
 		$("#social_links").slideToggle("fast");
 		toggleColor(this);
+		checkState();
+		toggleAttributes();
 	});
 	$("#resume").on("click", function(){
 		$("#social_links").slideUp("fast");
 		$("#resume_links").slideToggle("fast");
 		toggleColor(this);
+		checkState();
+		toggleAttributes();
+	});
+	//Click handlers to info buttons
+	$(".info_toggle").on("click", function(){
+		toggleColor(this);
+		var idFragment = $(this).attr("id");
+		var id = idFragment + "_info";
+		console.log(id);
+		$("#" + id).slideToggle("fast");
 	});
 
+
+	//Confirm before opening email application
+	$("#contact").on('click', function() {
+  		return confirm('Send an email?');
+	});
 
 //-----------------------Functions------------------
 
@@ -35,14 +55,42 @@ $(document).ready(function() {
 		if ($(element).css("color") == "rgb(128, 130, 133)") {
 			$(element).css("color", "#03a9f4");
 		}
-		else {
+		else if ($(element).css("color") == "rgb(3, 169, 244)" && !$(element).hasClass("info_toggle")){
+			//console.log($(element).css("color"))
 			$(element).css("color", "#808285");
+		}
+		else if ($(element).css("color") == "rgb(3, 169, 244)" && $(element).hasClass("info_toggle")){
+			//console.log($(element).css("color"))
+			$(element).css("color", "#424242");
+		}
+		else if ($(element).css("color") == "rgb(66, 66, 66)"){
+			$(element).css("color", "#03a9f4");
 		}
 		if ($(element).attr("id") == "resume") {
 			$("#social").css("color", "#808285");
 		} 
-		else {
+		else if($(element).attr("id") == "social"){
 			$("#resume").css("color", "#808285");
+		}
+	}
+
+	//Function to toggle attributes
+	function toggleAttributes() {
+		if (hidden) {
+			$(".nav").css("border-bottom-width","1px");
+		}
+		else {
+			$(".nav").css("border-bottom-width","0px");
+		}
+	}
+
+	//Function to check hidden element state
+	function checkState() {
+		if ($("#social").css("color") == "rgb(128, 130, 133)" && $("#resume").css("color") == "rgb(128, 130, 133)") {
+			hidden = true;
+		}
+		else {
+			hidden = false;
 		}
 	}
 })
