@@ -1,0 +1,346 @@
+@import "colors";
+@import "fonts";
+@import "reset";
+
+
+/***********************
+		Variables
+************************/
+
+@defaultHeaderHeight:		 110px;
+@defaultNavHeight:			 50px;
+@defaultHeaderPadding:		 @defaultHeaderHeight/2 - @defaultNavHeight/2;
+@defaultSectionPadding:		 60px;
+@defaultSidePadding:		 5.0%;
+@defaultSectionHeaderMargin: 35px;
+@mediumSidePadding:			 2.5%;
+@smallSidePadding:			 1.5%;
+
+
+/***********************
+		Mixins
+************************/
+
+.Clickable {
+	&:hover {
+		text-decoration:none;
+		cursor: pointer;
+	}
+	&:visited {
+		text-decoration:none;
+	}
+	&:active {
+		text-decoration:none;
+	}
+	&:link {
+		text-decoration:none;
+	}
+}
+
+.Image(@imageURL, @radius, @size) {
+	background-image: url(@imageURL);
+    -webkit-border-radius:@radius;
+       -moz-border-radius:@radius;
+            border-radius:@radius;
+    background-position: center;
+    background-size: @size @size;
+    width: @size;
+    height: @size;
+}
+
+/***********************
+		Body
+************************/
+
+body {
+	background-color: @primaryBackground;
+}
+
+
+/***********************
+		Header & Footer
+************************/
+
+.fixed-header-shell {
+	width: 100%;
+	position: fixed;
+	top: 0px;
+	z-index: 10;
+}
+
+.fixed-header-block {
+	background-color: @primaryBackgroundDark;
+	height: @defaultHeaderHeight;
+	clear: both;
+	padding-left: @defaultSidePadding;
+	padding-right: @defaultSidePadding;
+}
+
+.fixed-header-logo {
+	.HeadingLogo;
+	.Clickable;
+	color: @white;
+	height: @defaultHeaderHeight;
+	line-height: @defaultHeaderHeight;
+	text-align: left;
+}
+
+.fixed-header-nav {
+	.HeadingBody;
+	height: @defaultHeaderHeight;
+	line-height: @defaultHeaderHeight;
+	text-align: right;
+}
+
+.fixed-header-nav-link {
+	.Clickable;
+	.HeadingBody;
+	color: @white;
+	margin-right: 15px;
+}
+
+.footer-block {
+	background-color: @primaryBackgroundDark;
+	text-align: center;
+	padding-top: @defaultSectionPadding;
+	padding-bottom: @defaultSectionPadding;
+
+	p {
+		.FooterText;
+		color: @primaryLight;
+		margin: auto;
+	}
+}
+
+
+/***********************
+		Sections
+************************/
+
+.sections-shell {
+	width: 100%;
+	margin-top: @defaultHeaderHeight;
+}
+
+.section-block {
+	padding-top: 	@defaultSectionPadding;
+	padding-right:	@defaultSidePadding;
+	padding-left: 	@defaultSidePadding;
+	padding-bottom:	@defaultSectionPadding
+}
+
+.section-block-text {
+	.BodyText;
+	color: @primaryDark;
+	clear: both;
+	padding: 0px;
+	margin-top: @defaultSectionHeaderMargin;
+}
+
+.section-header {
+	.SectionHeader;
+	color: @primaryDark;
+	margin: auto;
+	width: auto;
+	text-align: center;
+}
+
+.section-sub-header {
+	.SectionSubHeader;
+}
+
+
+/***********************
+		Columns
+************************/
+
+.col {
+	display: block;
+	float:left;
+	margin: 0 0 0 1.6%;
+
+}
+
+.col:first-child { margin-left: 0; }
+
+.span_2_of_2 { width: 100%; }
+.span_1_of_2 { width: 49.2%; }
+
+.span_3_of_3 { width: 100%; }
+.span_2_of_3 { width: 66.13%; }
+.span_1_of_3 { width: 32.26%; }
+
+.span_4_of_4 { width: 100%; }
+.span_3_of_4 { width: 74.6%; }
+.span_2_of_4 { width: 49.2%; }
+.span_1_of_4 { width: 23.8%; }
+
+
+/***********************
+		Grouping
+************************/
+
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+
+/***********************
+		Intro
+************************/
+
+#intro {
+	.HeadingTagline;
+	background-color: @primaryBackgroundDark;
+	color: @white;
+	text-align: center;
+}
+
+#intro-avatar {
+	.Image("../../content/images/profile2.png", 9999px, 200px);
+	margin: auto;
+}
+
+#intro-tagline {
+	margin-top: 75px;
+}
+
+
+/***********************
+		About
+************************/
+
+#about {
+	background-color: @primaryBackgroundOff;
+}
+
+
+/***********************
+		Projects
+************************/
+
+#projects {
+	background-color: @primaryBackground;
+
+	img {
+		width: 95%;
+		height: 250px;
+		border-color: @primaryLight;
+		border-width: 2px;
+		border-style: solid;
+		object-fit: contain;
+		object-position: center;
+	}
+
+	a {
+		.Clickable;
+	}
+
+	h3 {
+		text-align: center;
+		color: @primaryDark;
+	}
+}
+
+
+/***********************
+		Links
+************************/
+
+#links {
+	background-color: @primaryBackgroundDark;
+
+	h3 {
+		color:@white;
+	}
+
+	a {
+		.Clickable;
+		color: @white;
+		text-align: center;
+	}
+
+	#facebook {
+		.Image("../../content/images/facebook.png", 9999px, 75px);
+		margin: auto;
+	}
+
+	#linkedin {
+		.Image("../../content/images/linkedin.png", 9999px, 75px);
+		margin: auto;
+	}
+
+	#google {
+		.Image("../../content/images/google.png", 9999px, 75px);
+		margin: auto;
+	}
+
+	#github {
+		.Image("../../content/images/github.png", 9999px, 75px);
+		margin: auto;
+	}
+
+}
+
+
+
+/***********************
+		Media Queries
+************************/
+
+@media screen and (max-width: 900px) {
+
+	.fixed-header-block {
+		padding-right: @mediumSidePadding;
+		padding-left: @mediumSidePadding;
+	}
+
+	.section-block {
+		padding-right: @mediumSidePadding;
+		padding-left: @mediumSidePadding;
+	}
+
+}
+
+@media screen and (max-width: 750px) {
+
+	.fixed-header-shell {
+		position: relative;
+	}
+
+
+	.fixed-header-nav {
+		text-align: center;
+		line-height: @defaultHeaderHeight / 3;
+		height: @defaultHeaderHeight / 3;
+	}
+
+	.fixed-header-logo {
+		text-align: center;
+		line-height: @defaultHeaderHeight * 2 / 3;
+		height: @defaultHeaderHeight * 2 / 3;
+	}
+
+
+	.fixed-header-block {
+		padding-right: @smallSidePadding;
+		padding-left: @smallSidePadding;
+	}
+
+	.sections-shell {
+		margin-top: 0;
+	}
+
+	.section-block {
+		padding-right: @smallSidePadding;
+		padding-left: @smallSidePadding;
+	}
+
+	.col {  margin: 0 0 0 0%; }
+	.span_2_of_2, .span_1_of_2, { width: 100%; }
+	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+	.span_4_of_4, .span_3_of_4, .span_2_of_4, .span_1_of_4 { width: 100%;}
+
+}
+
