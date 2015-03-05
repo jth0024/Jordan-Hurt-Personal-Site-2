@@ -18,7 +18,7 @@
 
 
         function getDetails () {
-            return dataservice.getProjectDetails($routeParams.id).then(function(data) {
+            return dataservice.getPostDetails($routeParams.id).then(function(data) {
                 vm.details = data;
             });
         }

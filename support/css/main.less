@@ -1,43 +1,69 @@
 @import "colors";
 @import "fonts";
 @import "reset";
+@import "init";
 
 
 /***********************
 		Variables
 ************************/
-
+/*Header*/
 @defaultHeaderHeight:		 110px;
 @defaultNavHeight:			 50px;
 @defaultHeaderPadding:		 @defaultHeaderHeight/2 - @defaultNavHeight/2;
+@defaultHeaderSidePadding:	 5.0%;
+
+/*Footer*/
+@defaultFooterHeight:		 70px;
+
+/*Section*/
 @defaultSectionPadding:		 60px;
-@defaultSidePadding:		 5.0%;
+//@defaultSidePadding:		 5.0%;
+@defaultSidePadding:		 0px;
 @defaultSectionHeaderMargin: 35px;
 @mediumSidePadding:			 2.5%;
 @smallSidePadding:			 1.5%;
+@sectionShellWidth:			 100%;
+@defaultSectionWidth:		 55%;
 
 
 /***********************
 		Mixins
 ************************/
 
-.Clickable {
-	&:hover {
+.Clickable 
+{
+	&:hover 
+	{
 		text-decoration:none;
 		cursor: pointer;
+		color: @primaryAccent;
 	}
-	&:visited {
+	&:visited 
+	{
 		text-decoration:none;
 	}
-	&:active {
+	&:active 
+	{
 		text-decoration:none;
 	}
-	&:link {
+	&:link 
+	{
 		text-decoration:none;
 	}
 }
 
-.Image(@imageURL, @radius, @size) {
+.Button
+{
+	padding: 8px;
+	background-color: @divider;
+	color: @primaryDark;
+	border-style: solid;
+	border-radius: 3px;
+}
+
+.Image(@imageURL, @radius, @size) 
+{
 	background-image: url(@imageURL);
     -webkit-border-radius:@radius;
        -moz-border-radius:@radius;
@@ -52,31 +78,36 @@
 		Body
 ************************/
 
-body {
-	background-color: @primaryBackground;
+body 
+{
+	background-color: @primaryBackgroundDark;
 }
+
 
 
 /***********************
 		Header & Footer
 ************************/
 
-.fixed-header-shell {
+.fixed-header-shell 
+{
 	width: 100%;
 	position: fixed;
 	top: 0px;
 	z-index: 10;
 }
 
-.fixed-header-block {
+.fixed-header-block 
+{
 	background-color: @primaryBackgroundDark;
 	height: @defaultHeaderHeight;
 	clear: both;
-	padding-left: @defaultSidePadding;
-	padding-right: @defaultSidePadding;
+	padding-left: @defaultHeaderSidePadding;
+	padding-right: @defaultHeaderSidePadding;
 }
 
-.fixed-header-logo {
+.fixed-header-logo 
+{
 	.HeadingLogo;
 	.Clickable;
 	color: @white;
@@ -85,30 +116,53 @@ body {
 	text-align: left;
 }
 
-.fixed-header-nav {
-	.HeadingBody;
+.fixed-header-nav 
+{
 	height: @defaultHeaderHeight;
-	line-height: @defaultHeaderHeight;
 	text-align: right;
 }
 
-.fixed-header-nav-link {
+.fixed-header-nav-link 
+{
 	.Clickable;
-	.HeadingBody;
+	.HeadingLink;
+	line-height: @defaultHeaderHeight;
 	color: @white;
-	margin-right: 15px;
+	margin-left: 18px;
 }
 
-.footer-block {
+.footer-block 
+{
 	background-color: @primaryBackgroundDark;
 	text-align: center;
 	padding-top: @defaultSectionPadding;
 	padding-bottom: @defaultSectionPadding;
+	height: @defaultFooterHeight;
 
-	p {
+	p
+	{
 		.FooterText;
-		color: @primaryLight;
+		color: @secondaryTextWhite;
 		margin: auto;
+		line-height: @defaultFooterHeight / 2;
+		width: 24em;
+
+	}
+
+	a
+	{
+		.Clickable;
+		text-align: center;
+		
+		//width: 2em;
+	}
+
+	.fa
+	{
+		.Clickable;
+		color: @secondaryTextWhite;
+		width: 5em;
+		line-height: @defaultFooterHeight / 2;
 	}
 }
 
@@ -117,36 +171,53 @@ body {
 		Sections
 ************************/
 
-.sections-shell {
-	width: 100%;
+.sections-shell
+{
+	width: @sectionShellWidth;
 	margin-top: @defaultHeaderHeight;
+	margin-left:	auto;
+	margin-right:	auto;
+	min-height: 900px;
+	background-color: @primaryBackground;
 }
 
-.section-block {
+.section-block
+{
 	padding-top: 	@defaultSectionPadding;
-	padding-right:	@defaultSidePadding;
-	padding-left: 	@defaultSidePadding;
-	padding-bottom:	@defaultSectionPadding
+	//padding-right:	@defaultSidePadding;
+	//padding-left: 	@defaultSidePadding;
+	padding-bottom:	@defaultSectionPadding;
+	border-style: solid;
+	border-bottom-width: 1.5px;
+	border-bottom-color: @divider;
+	width: @defaultSectionWidth;
+	margin-right: auto;
+	margin-left: auto;
 }
 
-.section-block-text {
+.section-block-text
+{
 	.BodyText;
-	color: @primaryDark;
+	color: @text;
 	clear: both;
 	padding: 0px;
 	margin-top: @defaultSectionHeaderMargin;
 }
 
-.section-header {
+.section-header
+{
 	.SectionHeader;
-	color: @primaryDark;
+	color: @text;
 	margin: auto;
 	width: auto;
-	text-align: center;
+	text-align: left;
 }
 
-.section-sub-header {
+.section-sub-header
+{
 	.SectionSubHeader;
+	margin-top: @defaultSectionHeaderMargin / 2;
+	color: @text;
 }
 
 
@@ -154,26 +225,62 @@ body {
 		Columns
 ************************/
 
-.col {
+.col
+{
 	display: block;
 	float:left;
 	margin: 0 0 0 1.6%;
 
 }
 
-.col:first-child { margin-left: 0; }
+.col:first-child
+{
+	margin-left: 0;
+}
 
-.span_2_of_2 { width: 100%; }
-.span_1_of_2 { width: 49.2%; }
+.span_2_of_2
+{
+	width: 100%; 
+}
+.span_1_of_2
+{
+	width: 49.2%;
+}
 
-.span_3_of_3 { width: 100%; }
-.span_2_of_3 { width: 66.13%; }
-.span_1_of_3 { width: 32.26%; }
+.span_3_of_3
+{ 
+	width: 100%; 
+}
 
-.span_4_of_4 { width: 100%; }
-.span_3_of_4 { width: 74.6%; }
-.span_2_of_4 { width: 49.2%; }
-.span_1_of_4 { width: 23.8%; }
+.span_2_of_3
+{
+	width: 66.13%;
+}
+
+.span_1_of_3 
+{
+	width: 32.26%;
+}
+
+.span_4_of_4 
+{
+	width: 100%;
+}
+
+.span_3_of_4 
+{
+	width: 74.6%;
+}
+
+.span_2_of_4 
+{
+	width: 49.2%;
+}
+
+.span_1_of_4
+{
+	width: 23.8%;
+}
 
 
 /***********************
@@ -181,38 +288,121 @@ body {
 ************************/
 
 .group:before,
-.group:after { content:""; display:table; }
-.group:after { clear:both;}
-.group { zoom:1; /* For IE 6/7 */ }
+.group:after 
+{
+	content:"";
+	display:table;
+}
+
+.group:after 
+{
+	clear:both;
+}
+
+.group
+{
+	zoom:1; /* For IE 6/7 */ 
+}
 
 
 /***********************
 		Intro
 ************************/
 
-#intro {
-	.HeadingTagline;
+#intro 
+{
 	background-color: @primaryBackgroundDark;
-	color: @white;
 	text-align: center;
+	.section-block 
+	{
+		border: 0px;
+		width: 100%;
+	}
+	
 }
 
-#intro-avatar {
+#intro-avatar 
+{
 	.Image("../../content/images/profile2.png", 9999px, 200px);
 	margin: auto;
 }
 
-#intro-tagline {
+#intro-tagline 
+{
+	.HeadingTagline;
+	color: @white;
 	margin-top: 75px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 }
 
 
 /***********************
-		About
+		Posts
 ************************/
 
-#about {
-	background-color: @primaryBackgroundOff;
+#details
+{
+	border-style: none;
+}
+
+.post-link
+{
+	.Clickable;
+}
+
+.post-date
+{
+	text-align: left;
+	color: @secondaryText;
+	.PostDate
+}
+
+.post-title
+{
+	.PostTitle;
+	.Clickable;
+	margin-top: 5px;
+	text-align: left;
+	color: @text;
+}
+
+.post-full-title
+{
+	.PostTitle;
+	margin-top: 5px;
+	text-align: left;
+	color: @text;
+}
+
+.post-text
+{
+	.BodyText;
+	margin-top: 5px;
+	text-align: left;
+	color: @text;
+}
+
+.post-full-text
+{
+	.BodyText;
+	margin-top: 5px;
+	padding-bottom: 50px;
+	text-align: left;
+	color: @text;
+	border-style: solid;
+	border-bottom-width: 1.5px;
+	border-bottom-color: @divider;
+}
+
+.post-navigation
+{
+	.Clickable;
+	.Button;
+	.BodyText;
+	display: inline-block;
+	margin-top: 50px;
 }
 
 
@@ -220,26 +410,54 @@ body {
 		Projects
 ************************/
 
-#projects {
-	background-color: @primaryBackground;
+.project-section
+{
+	text-align: left;
+}
 
-	img {
-		width: 95%;
-		height: 250px;
-		border-color: @primaryLight;
-		border-width: 2px;
-		border-style: solid;
-		object-fit: contain;
-		object-position: center;
-	}
+.project-title
+{
+	.PostTitle;
+	margin-top: 5px;
+	text-align: left;
+	color: @text;
+}
 
-	a {
-		.Clickable;
-	}
+.project-text
+{
+	.BodyText;
+	margin-top: 15px;
+	text-align: left;
+	color: @text;
+}
 
-	h3 {
-		text-align: center;
-		color: @primaryDark;
+.project-image
+{
+	width: 100%;
+	//height: 450px;
+	border-color: @primaryLight;
+	border-width: 2px;
+	border-style: solid;
+	object-fit: contain;
+	object-position: center;
+}
+
+.project-link
+{
+	.Clickable;
+}
+
+/***********************
+		Contact
+************************/
+
+#contact
+{
+	.fa
+	{
+		color:@primaryAccent;
+		margin-right: 10px;
+		width: 24px;
 	}
 }
 
@@ -248,39 +466,54 @@ body {
 		Links
 ************************/
 
-#links {
-	background-color: @primaryBackgroundDark;
+#links
+{
+	background-color: @primaryBackgroundOff;
 
-	h3 {
-		color:@white;
+	h3
+	{
+		color:@primaryDark;
 	}
 
-	a {
+	a
+	{
 		.Clickable;
-		color: @white;
+		color: @primaryDark;
 		text-align: center;
 	}
 
-	#facebook {
+	#facebook
+	{
 		.Image("../../content/images/facebook.png", 9999px, 75px);
 		margin: auto;
 	}
 
-	#linkedin {
+	#linkedin
+	{
 		.Image("../../content/images/linkedin.png", 9999px, 75px);
 		margin: auto;
 	}
 
-	#google {
+	#google
+	{
 		.Image("../../content/images/google.png", 9999px, 75px);
 		margin: auto;
 	}
 
-	#github {
+	#github
+	{
 		.Image("../../content/images/github.png", 9999px, 75px);
 		margin: auto;
 	}
+}
 
+.resume-link
+{
+	margin-top: 1.5em;
+	.Clickable;
+	.Button;
+	.BodyText;
+	display: inline-block;
 }
 
 
@@ -289,58 +522,103 @@ body {
 		Media Queries
 ************************/
 
-@media screen and (max-width: 900px) {
-
-	.fixed-header-block {
+@media screen and (max-width: 1024px)
+{
+	.fixed-header-block
+	{
 		padding-right: @mediumSidePadding;
 		padding-left: @mediumSidePadding;
 	}
 
-	.section-block {
-		padding-right: @mediumSidePadding;
-		padding-left: @mediumSidePadding;
+	.section-block
+	{
+		//padding-right: @mediumSidePadding;
+		//padding-left: @mediumSidePadding;
+		width: 70%;
 	}
-
 }
 
-@media screen and (max-width: 750px) {
-
-	.fixed-header-shell {
+@media screen and (max-width: 768px)
+{
+	.fixed-header-shell 
+	{
 		position: relative;
 	}
 
-
-	.fixed-header-nav {
+	.fixed-header-nav
+	{
 		text-align: center;
-		line-height: @defaultHeaderHeight / 3;
 		height: @defaultHeaderHeight / 3;
 	}
 
-	.fixed-header-logo {
+	.fixed-header-nav-link
+	{
+		line-height: @defaultHeaderHeight / 3;
+	}
+
+	.fixed-header-logo
+	{
 		text-align: center;
 		line-height: @defaultHeaderHeight * 2 / 3;
 		height: @defaultHeaderHeight * 2 / 3;
 	}
 
 
-	.fixed-header-block {
+	.fixed-header-block
+	{
 		padding-right: @smallSidePadding;
 		padding-left: @smallSidePadding;
 	}
 
-	.sections-shell {
+	.sections-shell
+	{
 		margin-top: 0;
 	}
 
-	.section-block {
-		padding-right: @smallSidePadding;
-		padding-left: @smallSidePadding;
+	.section-block
+	{
+		//padding-right: @smallSidePadding;
+		//padding-left: @smallSidePadding;
+		width: 90%;
 	}
 
-	.col {  margin: 0 0 0 0%; }
-	.span_2_of_2, .span_1_of_2, { width: 100%; }
-	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
-	.span_4_of_4, .span_3_of_4, .span_2_of_4, .span_1_of_4 { width: 100%;}
+	.col
+	{ 
+		margin: 0 0 0 0%;
+	}
 
+	.span_2_of_2, 
+	.span_1_of_2, 
+	{
+		width: 100%;
+	}
+
+	.span_3_of_3, 
+	.span_2_of_3, 
+	.span_1_of_3 
+	{ 
+		width: 100%;
+	}
+
+	.span_4_of_4,
+	.span_3_of_4,
+	.span_2_of_4,
+	.span_1_of_4
+	{
+		width: 100%;
+	}
+
+	#intro-tagline 
+	{
+		font-size: 3.4em;
+	}
+}
+
+@media screen and (max-width: 480px)
+{
+	#intro-tagline
+	{
+		font-size: 3em;
+	}
 }
 

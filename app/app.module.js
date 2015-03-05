@@ -15,7 +15,8 @@
         'app.about',
         'app.details',
         'app.layout',
-        'app.resume'
+        'app.posts',
+        'app.work'
     ]);
 
 })();

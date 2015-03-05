@@ -1,11 +1,17 @@
 /************************
 		Variables
 *************************/
-@notoSans:		'Noto Sans', sans-serif;
+@notoSerif:	'Noto Serif', serif;
 @sourceSansPro: 'Source Sans Pro', sans-serif;
-@pacifico:		'Pacifico', cursive;
-@roboto:		'Roboto', sans-serif;
-@robotoSlab:	'Roboto Slab', serif;
+@openSans: 'Open Sans', sans-serif;
+@roboto: 'Roboto', sans-serif;
+@robotoCondensed: 'Roboto Condensed', sans-serif;
+@robotoSlab: 'Roboto Slab', serif;
+
+@normal: @roboto;
+@condensed: @robotoCondensed;
+@serif: @robotoSlab;
+@heading: @openSans;
 
 /************************
 		Mixins
@@ -13,45 +19,58 @@
 
 
 .HeadingLogo {
-	font-family: @roboto;
-    font-weight: 700; 
-    font-size: 48px;
+	font-family: @normal;
+    font-weight: 400; 
+    font-size: 4.8em;
 }
 
-.HeadingBody {
-	font-family: @roboto;
+.HeadingLink {
+	font-family: @condensed;
 	font-weight: 300;
-	font-size: 16px;
+	font-size: 1.8em;
 }
 
 .HeadingTagline {
-	font-family: @roboto;
+	font-family: @normal;
 	font-weight: 100;
-	font-size: 250%;
+	font-size: 3.8em;
 }
 
 .BodyText {
-    font-family: @roboto;
-    font-weight: 300; 
-    font-size: 20px;
-    line-height: normal;
+    font-family: @serif;
+    font-weight: 400; 
+    font-size: 1.8em;
+    line-height: 1.8;
 }
 
 .SectionHeader {
-	font-family: @roboto;
+	font-family: @condensed;
     font-weight: 300; 
-    font-size: 250%;
+    font-size: 4.4em;
 }
 
 .SectionSubHeader {
-	font-family: @roboto;
-    font-weight: 100; 
-    font-size: 125%;
+	font-family: @normal;
+    font-weight: 300; 
+    font-size: 28px;
+}
+
+.PostDate {
+	font-family: @condensed;
+	font-weight: 300;
+	font-size: 2.0em;
+}
+
+.PostTitle {
+	font-family: @condensed;
+	font-weight: 300;
+	font-size: 4em;
+	line-height: 1.8;
 }
 
 
 .FooterText {
-	font-family: @roboto;
+	font-family: @condensed;
 	font-weight: 100;
-	font-size: 100%;
+	font-size: 1.6em;
 }

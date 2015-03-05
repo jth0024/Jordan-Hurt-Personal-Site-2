@@ -1,7 +1,8 @@
-<section class="section" id="details">
-	<div class="section-block">
-		<h3 class="section-header">{{vm.details.title}}</h3>
-		<img width="570" ng-src="{{vm.details.image_url}}" title="{{vm.details.title}}" />
-		<p>{{vm.details.description}}</p>
+<section class="section" >
+	<div class="section-block" id="details">
+		<h3 class="post-date">{{vm.details.published}}</h3>
+		<h3 class="post-full-title">{{vm.details.title}}</h3>
+		<p class="post-full-text">{{vm.details.content}}</p>
+		<a class="post-navigation" href="#/posts">Go Back</a>
 	</div>
 </section>

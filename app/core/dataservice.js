@@ -11,17 +11,18 @@
         var primePromise;
 
         var service = {
-            getAvengersCast: getAvengersCast,
-            getAvengerCount: getAvengerCount,
-            getAvengers: getAvengers,
+            //getAvengersCast: getAvengersCast,
+            //getAvengerCount: getAvengerCount,
+            //getAvengers: getAvengers,
+            getPosts: getPosts,
             getProjects: getProjects,
-            getProjectDetails: getProjectDetails,
+            getPostDetails: getPostDetails,
             ready: ready
         };
 
         return service;
 
-        function getAvengers() {
+        /*function getAvengers() {
             return $http.get('/api/maa')
                 .then(getAvengersComplete)
                 .catch(function(message) {
@@ -62,29 +63,38 @@
                 {name: 'Clark Gregg', character: 'Agent Phil Coulson'}
             ];
             return $q.when(cast);
-        }
+        }*/
 
         function getProjects() {
             var projects = [
-                {id: "rp_media", title: "RP Media", image_url: "content/images/rpmedia.png"},
-                {id: "russell_hospital", title: "Russell Hospital", image_url: "content/images/rhmain.png"},
-                {id: "calendar_time", title: "Calendar Time", image_url: "content/images/calendartime1.png"}
+                {id: "rp_media", title: "RP Media", image_url: "content/images/rpmedia.png", description: "RP Media is a Huntsville, Alabama based advertising/consulting company. The image above is a screenshot of some web design/prototype work that I completed for the company."},
+                {id: "russell_hospital", title: "Russell Hospital", image_url: "content/images/rhmain.png", description: "Russell Medical Center is located in Alexander City, Alabama. Along with five other students, I participated in a senior design project that requires the development an HVAC control system for the medical center's facilities. As the web interface team lead, I was tasked with designing a functional interface to display data from Russell's various air handlers, boilers, chillers, etc. The screenshot above is of the system summary tab, which displays maintenance, reminders, and summaries. In addition to developing the web interface, I have also worked extensively with the bacPypes Python library and Flask to develop PLC and server-side software, respectively."},
+                {id: "calendar_time", title: "Calendar Time", image_url: "content/images/calendartime1.png", description: "Calendar Time is a fun and whimsical social calendar app. The idea is rather simple; to replace pesky, hard-to-follow group invite messages with a simple and ephemeral social calendar. The app is still under development and the above image displays an interface mock up for the app, which I'm expecting to complete in 2015."}
             ];
             return $q.when(projects);
         }
 
-        function getProjectDetails(id) {
+        function getPosts() {
+            var projects = [
+                {id: "1", published: "2015-03-04", title: "First Post", content: "Hey there. I just started working on my blog.  I haven't..."},
+                {id: "2", published: "2011-08-01", title: "Some Thoughts", content: "These are some thoughts about stuff..."},
+                {id: "3", published: "2011-08-01", title: "Some Other Thoughts", content: "These are some thoughts about other stuff..."}
+            ];
+            return $q.when(projects);
+        }
+
+        function getPostDetails(id) {
             var details;
 
             switch(id) {
-                case "rp_media":
-                    details = {title: "RP Media", image_url: "content/images/rpmedia.png", description: "RP Media is a Huntsville, Alabama based advertising/consulting company. The image above is a screenshot of some web design/prototype work that I completed for the company."};
+                case "1":
+                    details = {published: "2015-03-04", title: "First Post", content: "Hey there. I just started working on my blog.  I haven't finished all the code yet, so you can view this post as a demo.  It's meant to show off the styling and UX that my blog will feature.  Anyway, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."};
                     break;
-                case "russell_hospital":
-                    details = {title: "Russell Hospital", image_url: "content/images/rhmain.png", description: "Russell Medical Center is located in Alexander City, Alabama. Along with five other students, I am currently participating in a senior design project that requires the development an HVAC control system for the medical center's facilities. As the web interface team lead, I was tasked with designing a functional interface to display data from Russell's various air handlers, boilers, chillers, etc. The screenshot above is of the system summary tab, which displays maintenance, reminders, and summaries. In addition to developing the web interface, I have also worked extensively with the bacPypes Python library and Flask to develop PLC and server-side software, respectively."};
+                case "2":
+                    details = {published: "2011-08-01", title: "Some Thoughts", content: "These are some thoughts about stuff. I have a lot of thoughts. These are some of the thoughts that I have had."};
                     break;
-                case "calendar_time":
-                    details = {title: "Calendar Time", image_url: "content/images/calendartime1.png", description: "Calendar Time is a fun and whimsical social calendar app. The idea is rather simple; to replace pesky, hard-to-follow group invite messages with a simple and ephemeral social calendar. The app is still under development and the above image displays an interface mock up for the app, which I'm expecting to complete in 2015."};
+                case "3":
+                    details = {published: "2011-08-01", title: "Some Other Thoughts", content: "These are some thoughts about other stuff. Sometimes I think about other stuff. This is one of the stuffs that I thunk about."};
                     break;
             }
             

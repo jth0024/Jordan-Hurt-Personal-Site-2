@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.resume')
+        .module('app.posts')
         .run(appRun);
 
     appRun.$inject = ['routehelper'];
@@ -15,12 +15,12 @@
     function getRoutes() {
         return [
             {
-                url: '/resume',
+                url: '/posts',
                 config: {
-                    templateUrl: 'app/resume/resume.html',
-                    controller: 'Resume',
+                    templateUrl: 'app/posts/posts.html',
+                    controller: 'Posts',
                     controllerAs: 'vm',
-                    title: 'resume',
+                    title: 'posts',
                 }
             }
         ];

@@ -1,5 +1,5 @@
 (function() {
     'use strict';
 
-    angular.module('app.resume', []);
+    angular.module('app.work', []);
 })();

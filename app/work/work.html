@@ -1,0 +1,29 @@
+<!--<section id="work">
+	<object data="content/Jordan_Hurt_Resume.pdf" type="application/pdf" width="100%" height="100%">
+		<p class="info_box" id="download_link">
+			Sorry, your browser doesn't support PDF viewing.  You can download in <a href="content/Jordan_Hurt_Resume.pdf">PDF</a> or <a href="content/Jordan_Hurt_Resume.docx">Word</a> format.
+		</p>
+	</object>
+</section>-->
+<!--<section class="section" id="projects">
+	<div class="section-block" id="projects-block">
+		<h3 class="section-header">My Work</h3>
+		<div class="section-block-text">
+			<div ng-repeat="section in vm.projects" id="{{section.id}}">
+				
+					<h3 class="section-sub-header">{{section.title}}</h3>
+					
+				</a>
+			</div>
+		</div>
+	</div>
+</section>-->
+
+
+<section class="section project-section" data-ng-repeat="section in vm.projects" id="{{section.id}}">
+	<div class="section-block">
+			<h3 class="project-title">{{section.title}}</h3>
+			<img class="project-image" ng-src="{{section.image_url}}" title="{{section.title}}" />
+			<p class="project-text">{{section.description}}</p>
+	</div>
+</section>
