@@ -76,9 +76,9 @@
 
         function getPosts() {
             var projects = [
-                {id: "1", published: "2015-03-04", title: "First Post", content: "Hey there. I just started working on my blog.  I haven't..."},
-                {id: "2", published: "2011-08-01", title: "Some Thoughts", content: "These are some thoughts about stuff..."},
-                {id: "3", published: "2011-08-01", title: "Some Other Thoughts", content: "These are some thoughts about other stuff..."}
+                {id: "1", published: "2015-03-04", title: "Demo Post", content: "Hey there. I just started working on my blog.  I haven't..."},
+                {id: "2", published: "2015-03-02", title: "Lorem Ipsum", content: "Lorem ipsum dolor sit amet..."},
+                {id: "3", published: "2015-03-01", title: "Lorem Ipsum Dolor", content: "Lorem ipsum dolor sit amet..."}
             ];
             return $q.when(projects);
         }
@@ -88,13 +88,13 @@
 
             switch(id) {
                 case "1":
-                    details = {published: "2015-03-04", title: "First Post", content: "Hey there. I just started working on my blog.  I haven't finished all the code yet, so you can view this post as a demo.  It's meant to show off the styling and UX that my blog will feature.  Anyway, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."};
+                    details = {published: "2015-03-04", title: "Demo Post", content: "Hey there. I just started working on my blog, and it's not quite ready for primetime.  But, even though it isn't done, I wanted to give a preview of the new feature. So, I created a few dummy posts as a demonstration.  Some things might change, but this is basically how the blog will look and feel when I'm done.  Stay tuned! "};
                     break;
                 case "2":
-                    details = {published: "2011-08-01", title: "Some Thoughts", content: "These are some thoughts about stuff. I have a lot of thoughts. These are some of the thoughts that I have had."};
+                    details = {published: "2015-03-02", title: "Lorem Ipsum", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."};
                     break;
                 case "3":
-                    details = {published: "2011-08-01", title: "Some Other Thoughts", content: "These are some thoughts about other stuff. Sometimes I think about other stuff. This is one of the stuffs that I thunk about."};
+                    details = {published: "2015-03-01", title: "Lorem Ipsum Dolor", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."};
                     break;
             }
             

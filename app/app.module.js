@@ -16,7 +16,8 @@
         'app.details',
         'app.layout',
         'app.posts',
-        'app.work'
+        'app.work',
+        'app.resume'
     ]);
 
 })();
