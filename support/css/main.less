@@ -80,13 +80,13 @@
 
 body 
 {
-	background-color: @primaryBackgroundDark;
+	background-color: @primaryBackground;
+	width: 100%;
 }
 
 
-
 /***********************
-		Header & Footer
+		Shells
 ************************/
 
 .fixed-header-shell 
@@ -95,40 +95,50 @@ body
 	position: fixed;
 	top: 0px;
 	z-index: 10;
+	background-color: @primaryBackgroundDark;
 }
+
+.sections-shell
+{
+	width: 100%;
+	margin-top: @defaultHeaderHeight;
+	min-height: 900px;
+	background-color: @primaryBackground;
+}
+
+.footer-shell
+{
+	width: 100%;
+	background-color: @primaryBackgroundDark;
+}
+
+/***********************
+		Blocks
+************************/
 
 .fixed-header-block 
 {
 	background-color: @primaryBackgroundDark;
 	height: @defaultHeaderHeight;
 	clear: both;
-	padding-left: @defaultHeaderSidePadding;
-	padding-right: @defaultHeaderSidePadding;
+	width: 100%;
+	//padding-left: @defaultHeaderSidePadding;
+	//padding-right: @defaultHeaderSidePadding;
 }
 
-.fixed-header-logo 
+.section-block
 {
-	.HeadingLogo;
-	.Clickable;
-	color: @white;
-	height: @defaultHeaderHeight;
-	line-height: @defaultHeaderHeight;
+	background-color: @primaryBackground;
+	width: @defaultSectionWidth;
+	padding-top: @defaultSectionPadding;
+	padding-bottom: @defaultSectionPadding;
+	margin-right: auto;
+	margin-left: auto;
 	text-align: left;
-}
+	border-style: solid;
+	border-bottom-width: 1.5px;
+	border-bottom-color: @divider;
 
-.fixed-header-nav 
-{
-	height: @defaultHeaderHeight;
-	text-align: right;
-}
-
-.fixed-header-nav-link 
-{
-	.Clickable;
-	.HeadingLink;
-	line-height: @defaultHeaderHeight;
-	color: @white;
-	margin-left: 18px;
 }
 
 .footer-block 
@@ -138,25 +148,50 @@ body
 	padding-top: @defaultSectionPadding;
 	padding-bottom: @defaultSectionPadding;
 	height: @defaultFooterHeight;
+}
 
-	p
-	{
-		.FooterText;
-		color: @secondaryTextWhite;
-		margin: auto;
-		line-height: @defaultFooterHeight / 2;
-		width: 24em;
 
-	}
 
-	a
-	{
-		.Clickable;
-		text-align: center;
-		
-		//width: 2em;
-	}
+/***********************
+		Header
+************************/
 
+.fixed-header-logo 
+{
+	.HeadingLogo;
+	.Clickable;
+	height: @defaultHeaderHeight;
+	line-height: @defaultHeaderHeight;
+	//margin-left: @defaultHeaderSidePadding;
+	text-align: left;
+	color: @white;
+}
+
+.fixed-header-nav 
+{
+	height: @defaultHeaderHeight;
+	//margin-right: @defaultHeaderSidePadding;
+	text-align: right;
+}
+
+.fixed-header-nav-link 
+{
+	.Clickable;
+	.HeadingLink;
+	line-height: @defaultHeaderHeight;
+	margin-left: 18px;
+	//margin-right: 9px;
+	color: @white;
+}
+
+/***********************
+		Footer
+************************/
+
+.footer-link
+{
+	.Clickable;
+	text-align: center;	
 	.fa
 	{
 		.Clickable;
@@ -166,51 +201,32 @@ body
 	}
 }
 
+.footer-text
+{
+	.FooterText;
+	color: @secondaryTextWhite;
+	margin: auto;
+	line-height: @defaultFooterHeight / 2;
+	//width: 10%;
+}
+
 
 /***********************
 		Sections
 ************************/
 
-.sections-shell
-{
-	width: @sectionShellWidth;
-	margin-top: @defaultHeaderHeight;
-	margin-left:	auto;
-	margin-right:	auto;
-	min-height: 900px;
-	background-color: @primaryBackground;
-}
-
-.section-block
-{
-	padding-top: 	@defaultSectionPadding;
-	//padding-right:	@defaultSidePadding;
-	//padding-left: 	@defaultSidePadding;
-	padding-bottom:	@defaultSectionPadding;
-	border-style: solid;
-	border-bottom-width: 1.5px;
-	border-bottom-color: @divider;
-	width: @defaultSectionWidth;
-	margin-right: auto;
-	margin-left: auto;
-}
-
 .section-block-text
 {
 	.BodyText;
 	color: @text;
-	clear: both;
-	padding: 0px;
 	margin-top: @defaultSectionHeaderMargin;
 }
 
 .section-header
 {
 	.SectionHeader;
-	color: @text;
-	margin: auto;
-	width: auto;
 	text-align: left;
+	color: @text;
 }
 
 .section-sub-header
@@ -229,13 +245,7 @@ body
 {
 	display: block;
 	float:left;
-	margin: 0 0 0 1.6%;
-
-}
-
-.col:first-child
-{
-	margin-left: 0;
+	margin: 0 0 0 0;
 }
 
 .span_2_of_2
@@ -244,43 +254,9 @@ body
 }
 .span_1_of_2
 {
-	width: 49.2%;
+	width: 50%;
 }
 
-.span_3_of_3
-{ 
-	width: 100%; 
-}
-
-.span_2_of_3
-{
-	width: 66.13%;
-}
-
-.span_1_of_3 
-{
-	width: 32.26%;
-}
-
-.span_4_of_4 
-{
-	width: 100%;
-}
-
-.span_3_of_4 
-{
-	width: 74.6%;
-}
-
-.span_2_of_4 
-{
-	width: 49.2%;
-}
-
-.span_1_of_4
-{
-	width: 23.8%;
-}
 
 
 /***********************
@@ -302,6 +278,8 @@ body
 .group
 {
 	zoom:1; /* For IE 6/7 */ 
+	width: 95%;
+	margin: auto;
 }
 
 
@@ -315,15 +293,15 @@ body
 	text-align: center;
 	.section-block 
 	{
-		border: 0px;
-		width: 100%;
+		border-style: none;
+		background-color: @primaryBackgroundDark;
 	}
 	
 }
 
 #intro-avatar 
 {
-	.Image("../../content/images/profile2.png", 9999px, 200px);
+	.Image("../../content/images/profile2.png", 9999px, 300px);
 	margin: auto;
 }
 
@@ -526,8 +504,8 @@ body
 {
 	.fixed-header-block
 	{
-		padding-right: @mediumSidePadding;
-		padding-left: @mediumSidePadding;
+		//padding-right: @mediumSidePadding;
+		//padding-left: @mediumSidePadding;
 	}
 
 	.section-block
@@ -535,6 +513,16 @@ body
 		//padding-right: @mediumSidePadding;
 		//padding-left: @mediumSidePadding;
 		width: 70%;
+	}
+
+	#intro-avatar 
+	{
+		.Image("../../content/images/profile2.png", 9999px, 250px);
+	}
+
+	#intro-tagline
+	{
+		font-size: 3.4em;
 	}
 }
 
@@ -554,6 +542,8 @@ body
 	.fixed-header-nav-link
 	{
 		line-height: @defaultHeaderHeight / 3;
+		margin-left: 15px;
+		margin-right: 15px;
 	}
 
 	.fixed-header-logo
@@ -566,8 +556,8 @@ body
 
 	.fixed-header-block
 	{
-		padding-right: @smallSidePadding;
-		padding-left: @smallSidePadding;
+		//padding-right: @smallSidePadding;
+		//padding-left: @smallSidePadding;
 	}
 
 	.sections-shell
@@ -587,30 +577,25 @@ body
 		margin: 0 0 0 0%;
 	}
 
+	.group
+	{
+		width: 100%;
+	}
+
 	.span_2_of_2, 
 	.span_1_of_2, 
 	{
 		width: 100%;
 	}
 
-	.span_3_of_3, 
-	.span_2_of_3, 
-	.span_1_of_3 
-	{ 
-		width: 100%;
-	}
-
-	.span_4_of_4,
-	.span_3_of_4,
-	.span_2_of_4,
-	.span_1_of_4
+	#intro-avatar 
 	{
-		width: 100%;
+		.Image("../../content/images/profile2.png", 9999px, 200px);
 	}
 
 	#intro-tagline 
 	{
-		font-size: 3.4em;
+		font-size: 3em;
 	}
 }
 
@@ -618,7 +603,7 @@ body
 {
 	#intro-tagline
 	{
-		font-size: 3em;
+		font-size: 2.4em;
 	}
 }
 
