@@ -11,59 +11,13 @@
         var primePromise;
 
         var service = {
-            //getAvengersCast: getAvengersCast,
-            //getAvengerCount: getAvengerCount,
-            //getAvengers: getAvengers,
             getPosts: getPosts,
             getProjects: getProjects,
-            getPostDetails: getPostDetails,
             ready: ready
         };
 
         return service;
-
-        /*function getAvengers() {
-            return $http.get('/api/maa')
-                .then(getAvengersComplete)
-                .catch(function(message) {
-                    //exception.catcher('XHR Failed for getAvengers')(message);
-                    $location.url('/');
-                });
-
-            function getAvengersComplete(data, status, headers, config) {
-                return data.data[0].data.results;
-            }
-        }
-
-        function getAvengerCount() {
-            var count = 0;
-            return getAvengersCast()
-                .then(getAvengersCastComplete)
-                .catch(//exception.catcher('XHR Failed for getAvengerCount')
-                );
-
-            function getAvengersCastComplete (data) {
-                count = data.length;
-                return $q.when(count);
-            }
-        }
-
-        function getAvengersCast() {
-            var cast = [
-                {name: 'Robert Downey Jr.', character: 'Tony Stark / Iron Man'},
-                {name: 'Chris Hemsworth', character: 'Thor'},
-                {name: 'Chris Evans', character: 'Steve Rogers / Captain America'},
-                {name: 'Mark Ruffalo', character: 'Bruce Banner / The Hulk'},
-                {name: 'Scarlett Johansson', character: 'Natasha Romanoff / Black Widow'},
-                {name: 'Jeremy Renner', character: 'Clint Barton / Hawkeye'},
-                {name: 'Gwyneth Paltrow', character: 'Pepper Potts'},
-                {name: 'Samuel L. Jackson', character: 'Nick Fury'},
-                {name: 'Paul Bettany', character: 'Jarvis'},
-                {name: 'Tom Hiddleston', character: 'Loki'},
-                {name: 'Clark Gregg', character: 'Agent Phil Coulson'}
-            ];
-            return $q.when(cast);
-        }*/
+        
 
         function getProjects() {
             var projects = [
@@ -75,31 +29,11 @@
         }
 
         function getPosts() {
-            var projects = [
-                {id: "1", published: "2015-03-04", title: "Demo Post", content: "Hey there. I just started working on my blog.  I haven't..."},
-                {id: "2", published: "2015-03-02", title: "Lorem Ipsum", content: "Lorem ipsum dolor sit amet..."},
-                {id: "3", published: "2015-03-01", title: "Lorem Ipsum Dolor", content: "Lorem ipsum dolor sit amet..."}
-            ];
-            return $q.when(projects);
-        }
-
-        function getPostDetails(id) {
-            var details;
-
-            switch(id) {
-                case "1":
-                    details = {published: "2015-03-04", title: "Demo Post", content: "Hey there. I just started working on my blog, and it's not quite ready for primetime.  But, even though it isn't done, I wanted to give a preview of the new feature. So, I created a few dummy posts as a demonstration.  Some things might change, but this is basically how the blog will look and feel when I'm done.  Stay tuned! "};
-                    break;
-                case "2":
-                    details = {published: "2015-03-02", title: "Lorem Ipsum", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."};
-                    break;
-                case "3":
-                    details = {published: "2015-03-01", title: "Lorem Ipsum Dolor", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."};
-                    break;
-            }
-            
-            return $q.when(details);
-        }
+            return $http.get("https://www.googleapis.com/blogger/v3/blogs/7831823033313363717/posts?key=AIzaSyBntQw8Opl1Zu6vIB1pgAmaqHdpd5RiYtI")
+                .then(function(response) {
+                    return response.data;
+            });
+        };
 
         function prime() {
             // This function can only be called once.

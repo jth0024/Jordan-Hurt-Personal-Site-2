@@ -22,6 +22,15 @@
                     controllerAs: 'vm',
                     title: 'posts',
                 }
+            },
+            {
+                url: '/posts/:id',
+                config: {
+                    templateUrl: 'app/posts/postdetails.html',
+                    controller: 'PostDetails',
+                    controllerAs: 'vm',
+                    title: 'postDetails',
+                }
             }
         ];
     }

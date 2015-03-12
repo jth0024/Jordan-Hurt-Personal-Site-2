@@ -13,7 +13,6 @@
          * Feature areas
          */
         'app.about',
-        'app.details',
         'app.layout',
         'app.posts',
         'app.work',

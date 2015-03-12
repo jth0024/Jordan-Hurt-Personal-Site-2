@@ -17,12 +17,12 @@
 	</div>
 </section>-->
 
-<section class="section" data-ng-repeat="section in vm.posts" id="{{section.id}}">
+<section class="section" data-ng-repeat="item in vm.postList.items" id="{{item.id}}">
 	<div class="section-block">
-		<a class="post-link" ng-href="#/details/{{section.id}}">
-			<h3 class="post-date">{{section.published}}</h3>
-			<h3 class="post-title">{{section.title}}</h3>
-			<p class="post-text">{{section.content}}</p>
+		<a class="post-link" ng-href="#/posts/{{item.id}}">
+			<h3 class="post-date">{{item.published}}</h3>
+			<h3 class="post-title">{{item.title}}</h3>
+			<p class="post-text">{{item.snippet}}...</p>
 		</a>
 	</div>
 </section>

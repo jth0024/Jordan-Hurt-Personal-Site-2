@@ -14,7 +14,8 @@
 @defaultHeaderSidePadding:	 5.0%;
 
 /*Footer*/
-@defaultFooterHeight:		 70px;
+@defaultFooterHeight:		 60px;
+@defaultFooterPadding:		 20px;
 
 /*Section*/
 @defaultSectionPadding:		 60px;
@@ -55,7 +56,10 @@
 
 .Button
 {
-	padding: 8px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
 	background-color: @divider;
 	color: @primaryDark;
 	border-style: solid;
@@ -145,8 +149,8 @@ body
 {
 	background-color: @primaryBackgroundDark;
 	text-align: center;
-	padding-top: @defaultSectionPadding;
-	padding-bottom: @defaultSectionPadding;
+	padding-top: @defaultFooterPadding;
+	padding-bottom: @defaultFooterPadding;
 	height: @defaultFooterHeight;
 }
 
@@ -378,7 +382,7 @@ body
 {
 	.Clickable;
 	.Button;
-	.BodyText;
+	.ButtonText;
 	display: inline-block;
 	margin-top: 50px;
 }
@@ -490,7 +494,7 @@ body
 	margin-top: 1.5em;
 	.Clickable;
 	.Button;
-	.BodyText;
+	.ButtonText;
 	display: inline-block;
 }
 
