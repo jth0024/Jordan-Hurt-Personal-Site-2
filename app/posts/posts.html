@@ -21,8 +21,8 @@
 	<div class="section-block">
 		<a class="post-link" ng-href="#/posts/{{item.id}}">
 			<h3 class="post-date">{{item.published}}</h3>
-			<h3 class="post-title">{{item.title}}</h3>
-			<p class="post-text">{{item.snippet}}...</p>
+			<h3 class="post-title" ng-bind-html="item.title"></h3>
+			<p class="post-text" ng-bind-html="item.snippet">...</p>
 		</a>
 	</div>
 </section>

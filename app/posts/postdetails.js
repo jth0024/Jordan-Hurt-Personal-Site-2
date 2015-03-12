@@ -5,7 +5,7 @@
         .module('app.posts')
         .controller('PostDetails', PostDetails);
 
-    function PostDetails($routeParams, $timeout, config, dataservice) {
+    function PostDetails($routeParams, $timeout, $sanitize, config, dataservice) {
         var vm = this;
         vm.dateEnd = 10;
         vm.postEnd = -7;
@@ -24,7 +24,7 @@
                         var details = {
                             published: data.items[item].published.slice(0, vm.dateEnd),
                             title: data.items[item].title,
-                            content: data.items[item].content.slice(vm.postBegin, vm.postEnd)
+                            content: $sanitize(data.items[item].content)
                         };
                         vm.details = details;
                     }
