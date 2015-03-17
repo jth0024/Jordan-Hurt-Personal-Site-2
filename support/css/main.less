@@ -2,6 +2,7 @@
 @import "fonts";
 @import "reset";
 @import "init";
+@import "animate";
 
 
 /***********************
@@ -14,14 +15,16 @@
 @defaultHeaderSidePadding:	 5.0%;
 
 /*Footer*/
-@defaultFooterHeight:		 60px;
+@defaultFooterHeight:		 150px;
 @defaultFooterPadding:		 20px;
 
 /*Section*/
 @defaultSectionPadding:		 60px;
+@smallSectionPadding:		 50px;
 //@defaultSidePadding:		 5.0%;
 @defaultSidePadding:		 0px;
 @defaultSectionHeaderMargin: 35px;
+@smallSectionHeaderMargin:	 20px;
 @mediumSidePadding:			 2.5%;
 @smallSidePadding:			 1.5%;
 @sectionShellWidth:			 100%;
@@ -78,6 +81,28 @@
     height: @size;
 }
 
+
+
+/***********************
+		Miscellaneous UI
+************************/
+.table
+{
+	display: table;
+}
+
+.row
+{
+	display: table-row;
+}
+
+.cell
+{
+	display: table-cell;
+	padding-right: 15px;
+	text-align: left;
+}
+
 /***********************
 		Body
 ************************/
@@ -106,7 +131,7 @@ body
 {
 	width: 100%;
 	margin-top: @defaultHeaderHeight;
-	min-height: 900px;
+	min-height: 950px;
 	background-color: @primaryBackground;
 }
 
@@ -147,11 +172,12 @@ body
 
 .footer-block 
 {
-	background-color: @primaryBackgroundDark;
+	background-color: @primaryBackground;
 	text-align: center;
-	padding-top: @defaultFooterPadding;
-	padding-bottom: @defaultFooterPadding;
+	//padding-top: @defaultFooterPadding;
+	//padding-bottom: @defaultFooterPadding;
 	height: @defaultFooterHeight;
+	width: 100%;
 }
 
 
@@ -195,23 +221,37 @@ body
 .footer-link
 {
 	.Clickable;
+	//width: 25%;
 	text-align: center;	
 	.fa
 	{
 		.Clickable;
-		color: @secondaryTextWhite;
-		width: 5em;
+		color: @primaryMedium;
+		width: 20%;
 		line-height: @defaultFooterHeight / 2;
 	}
+
 }
 
 .footer-text
 {
 	.FooterText;
-	color: @secondaryTextWhite;
+	//color: @secondaryTextWhite;
 	margin: auto;
 	line-height: @defaultFooterHeight / 2;
-	//width: 10%;
+	height: @defaultFooterHeight / 2;
+	width: 100%;
+}
+
+.footer-icons
+{
+	background-color: @divider;
+}
+
+.footer-copyright
+{
+	background-color: @primaryBackgroundDark;
+	color: @secondaryTextWhite;
 }
 
 
@@ -438,8 +478,13 @@ body
 	.fa
 	{
 		color:@primaryAccent;
-		margin-right: 10px;
-		width: 24px;
+		//width: 20px;
+		font-size: 1em;
+	}
+
+	.section-block
+	{
+		border-style: none;
 	}
 }
 
@@ -506,16 +551,9 @@ body
 
 @media screen and (max-width: 1024px)
 {
-	.fixed-header-block
-	{
-		//padding-right: @mediumSidePadding;
-		//padding-left: @mediumSidePadding;
-	}
 
 	.section-block
 	{
-		//padding-right: @mediumSidePadding;
-		//padding-left: @mediumSidePadding;
 		width: 70%;
 	}
 
@@ -528,6 +566,7 @@ body
 	{
 		font-size: 3.4em;
 	}
+
 }
 
 @media screen and (max-width: 768px)
@@ -571,9 +610,26 @@ body
 
 	.section-block
 	{
-		//padding-right: @smallSidePadding;
-		//padding-left: @smallSidePadding;
+		padding-top: @smallSectionPadding;
+		padding-bottom: @smallSectionPadding;
 		width: 90%;
+	}
+
+	.section-block-text
+	{
+		.BodyTextSmall;
+		margin-top: @smallSectionHeaderMargin;
+	}
+
+	.section-header
+	{
+		.SectionHeaderSmall;
+	}
+
+	.section-sub-header
+	{
+		.SectionSubHeaderSmall;
+		margin-top: @smallSectionHeaderMargin / 2;
 	}
 
 	.col
@@ -597,9 +653,46 @@ body
 		.Image("../../content/images/profile2.png", 9999px, 200px);
 	}
 
+	//Adjusting fonts for mobile interface
+
 	#intro-tagline 
 	{
 		font-size: 3em;
+	}
+
+	.project-title
+	{
+		.PostTitleSmall;
+	}
+
+	.project-text
+	{
+		.BodyTextSmall;
+	}
+
+	.post-date
+	{
+		.PostDateSmall;
+	}
+
+	.post-title
+	{
+		.PostTitleSmall;
+	}
+
+	.post-full-title
+	{
+		.PostTitleSmall;
+	}
+
+	.post-text
+	{
+		.BodyTextSmall;
+	}
+
+	.post-full-text
+	{
+		.BodyTextSmall;
 	}
 }
 
@@ -607,7 +700,7 @@ body
 {
 	#intro-tagline
 	{
-		font-size: 2.4em;
+		font-size: 2em;
 	}
 }
 

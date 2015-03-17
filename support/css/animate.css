@@ -1,0 +1,8 @@
+/*.dissolve-animate.ng-enter, .dissolve-animate.ng-leave{
+ -webkit-transition:all linear .5s;
+  -moz-transition:all linear .5s;
+   -o-transition:all linear .5s;
+      transition:all linear .5s;
+ }*/
+.dissolve-animate.ng-enter,.dissolve-animate.ng-leave{-webkit-transition:all cubic-bezier(0.25,.46,.45,.94) .35s;-moz-transition:all cubic-bezier(0.25,.46,.45,.94) .35s;-o-transition:all cubic-bezier(0.25,.46,.45,.94) .35s;transition:all cubic-bezier(0.25,.46,.45,.94) .35s}.dissolve-animate.ng-enter{position:relative;opacity:0}.dissolve-animate.ng-enter-active{opacity:1}.dissolve-animate.ng-leave{position:relative;opacity:1}.dissolve-animate.ng-leave-active{opacity:.01}
+/* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */
