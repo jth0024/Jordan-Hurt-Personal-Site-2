@@ -1,8 +1,17 @@
-<div class="fixed-header-block group" data-ng-controller="Topnav as vm">
-		<a class="fixed-header-logo col span_1_of_2" href="#/"><h1>{{vm.title}}</h1></a>
-		<nav class="fixed-header-nav col span_1_of_2">
-			<a class="fixed-header-nav-link" href="#/">About</a>
-			<a class="fixed-header-nav-link" href="#/work">Projects</a>
-			<a class="fixed-header-nav-link" href="#/posts">Blog</a>
-		</nav>
-</div>
+<nav class="blue-grey darken-3 no-shadow" role="navigation">
+	<div class="blue-grey darken-3 no-shadow nav-wrapper">
+		<a id="logo-container" ui-sref="home" class="brand-logo">Jordan Hurt</a>
+		<ul class="nav-links right hide-on-med-and-down">
+			<li ui-sref-active="active-link" ><a ui-sref="home">Home</a></li>
+			<li ui-sref-active="active-link" ><a ui-sref="portfolio">Portfolio</a></li>
+			<li ui-sref-active="active-link" ><a ui-sref="blog">Blog</a></li>
+		</ul>
+
+		<ul id="nav-mobile" class="side-nav">
+			<li ui-sref-active="active" ><a ui-sref="home">Home</a></li>
+			<li ui-sref-active="active" ><a ui-sref="portfolio">Portfolio</a></li>
+			<li ui-sref-active="active" ><a ui-sref="blog">Blog</a></li>
+		</ul>
+		<a href="#" class="button-collapse ng-isolate-scope" data-activates="nav-mobile" data-sidenav="left" data-menuwidth="275" data-closeonclick="true"><i class="mdi-navigation-menu"></i></a>      
+	</div>
+</nav>

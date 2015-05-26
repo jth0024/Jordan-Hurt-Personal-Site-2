@@ -1,15 +1,14 @@
 (function() {
-    'use strict';
+	'use strict';
 
-    angular.module('app.core', [
-        /*
-         * Angular Modules
-         */
-        'ngRoute', 'ngSanitize', 'ngAnimate',
-        /*
-         * Reusable cross app modules
-         */
-        'blocks.router'
-        
-    ]);
+	angular.module('app.core', [
+		/*
+		* Angular Modules
+		*/
+		'ngSanitize', 'ngAnimate', 'ui.materialize',
+
+		/*Resuseable blocks*/
+		'blocks.router'
+
+	]);
 })();

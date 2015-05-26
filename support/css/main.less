@@ -1,706 +1,288 @@
 @import "colors";
 @import "fonts";
-@import "reset";
-@import "init";
 @import "animate";
 
+@screen-sm:	600px;
+@screen-md: 992px;
+@screen-lg: 1200px;
 
-/***********************
-		Variables
-************************/
-/*Header*/
-@defaultHeaderHeight:		 110px;
-@defaultNavHeight:			 50px;
-@defaultHeaderPadding:		 @defaultHeaderHeight/2 - @defaultNavHeight/2;
-@defaultHeaderSidePadding:	 5.0%;
+//////////////////////////////////Intro//////////////////////////////
 
-/*Footer*/
-@defaultFooterHeight:		 150px;
-@defaultFooterPadding:		 20px;
-
-/*Section*/
-@defaultSectionPadding:		 60px;
-@smallSectionPadding:		 50px;
-//@defaultSidePadding:		 5.0%;
-@defaultSidePadding:		 0px;
-@defaultSectionHeaderMargin: 35px;
-@smallSectionHeaderMargin:	 20px;
-@mediumSidePadding:			 2.5%;
-@smallSidePadding:			 1.5%;
-@sectionShellWidth:			 100%;
-@defaultSectionWidth:		 55%;
-
-
-/***********************
-		Mixins
-************************/
-
-.Clickable 
+#lead-button
 {
-	&:hover 
-	{
-		text-decoration:none;
-		cursor: pointer;
-		color: @primaryAccent;
-	}
-	&:visited 
-	{
-		text-decoration:none;
-	}
-	&:active 
-	{
-		text-decoration:none;
-	}
-	&:link 
-	{
-		text-decoration:none;
-	}
-}
-
-.Button
-{
-	padding-right: 10px;
-	padding-left: 10px;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	background-color: @divider;
-	color: @primaryDark;
-	border-style: solid;
-	border-radius: 3px;
-}
-
-.Image(@imageURL, @radius, @size) 
-{
-	background-image: url(@imageURL);
-    -webkit-border-radius:@radius;
-       -moz-border-radius:@radius;
-            border-radius:@radius;
-    background-position: center;
-    background-size: @size @size;
-    width: @size;
-    height: @size;
+	margin-bottom: -130.5px;
 }
 
 
 
-/***********************
-		Miscellaneous UI
-************************/
-.table
+.img-main
 {
-	display: table;
+	width: 70%;
 }
 
+.no-shadow
+{
+	box-shadow: none;
+}
+
+#logo-container
+{
+	width: 200px;
+	text-align: center;
+}
+
+.centered-item
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.nav-wrapper
+{
+	width: 95%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+////////////////////////////////////Focus////////////////////////////
 .row
 {
-	display: table-row;
+	.focus-header
+	{
+		@media screen and (max-width: @screen-md)
+		{
+			text-align: center;
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+	.icon-col
+	{
+		padding-right: .5rem;
+		padding-left: .5rem;
+		.top-panel
+		{
+			margin-top: 15px;
+			@media screen and (max-width: @screen-md)
+			{
+				margin-bottom: 0px;
+			}
+		}
+		.bottom-panel
+		{
+
+			@media screen and (max-width: @screen-md)
+			{
+				margin-top: 0px;
+			}
+			@media screen and (min-width: 993px)
+			{
+				height: 305px;
+			}
+			@media screen and (min-width: 1015px)
+			{
+				height: 285;
+			}
+			@media screen and (min-width: 1215px)
+			{
+				height: 265px;
+			}
+			@media screen and (min-width: 1400px)
+			{
+				height: 250px;
+			}
+		}
+	}
 }
 
-.cell
+.icon-block
 {
-	display: table-cell;
-	padding-right: 15px;
-	text-align: left;
+	.card-panel
+	{
+		border-radius: 0px;
+	}
 }
 
-/***********************
-		Body
-************************/
-
-body 
+#icons
 {
-	background-color: @primaryBackground;
+	padding-right: .25rem;
+	padding-left: .25rem;
+}
+
+.focus-section
+{
 	width: 100%;
+	background-image: url("../images/mac-desk.png");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	//height: 500px;
+	position: relative;
+	.row
+	{
+		//margin-top: 20px;
+	}
+}
+.overlay
+{
+	position: absolute;
+	//content:"";
+	top:0;
+	left:0;
+	width:100%;
+	height: 100%;
+	background-color: #37474f;
+	opacity:0.7;
 }
 
-
-/***********************
-		Shells
-************************/
-
-.fixed-header-shell 
+.elevate
 {
-	width: 100%;
-	position: fixed;
-	top: 0px;
 	z-index: 10;
-	background-color: @primaryBackgroundDark;
+	position: relative;
 }
 
-.sections-shell
+//////////////////////////////////////////////Services//////////////////////////
+
+.services-header
 {
 	width: 100%;
-	margin-top: @defaultHeaderHeight;
-	min-height: 950px;
-	background-color: @primaryBackground;
-}
-
-.footer-shell
-{
-	width: 100%;
-	background-color: @primaryBackgroundDark;
-}
-
-/***********************
-		Blocks
-************************/
-
-.fixed-header-block 
-{
-	background-color: @primaryBackgroundDark;
-	height: @defaultHeaderHeight;
-	clear: both;
-	width: 100%;
-	//padding-left: @defaultHeaderSidePadding;
-	//padding-right: @defaultHeaderSidePadding;
-}
-
-.section-block
-{
-	background-color: @primaryBackground;
-	width: @defaultSectionWidth;
-	padding-top: @defaultSectionPadding;
-	padding-bottom: @defaultSectionPadding;
-	margin-right: auto;
-	margin-left: auto;
-	text-align: left;
-	border-style: solid;
-	border-bottom-width: 1.5px;
-	border-bottom-color: @divider;
-
-}
-
-.footer-block 
-{
-	background-color: @primaryBackground;
-	text-align: center;
-	//padding-top: @defaultFooterPadding;
-	//padding-bottom: @defaultFooterPadding;
-	height: @defaultFooterHeight;
-	width: 100%;
-}
-
-
-
-/***********************
-		Header
-************************/
-
-.fixed-header-logo 
-{
-	.HeadingLogo;
-	.Clickable;
-	height: @defaultHeaderHeight;
-	line-height: @defaultHeaderHeight;
-	//margin-left: @defaultHeaderSidePadding;
-	text-align: left;
-	color: @white;
-}
-
-.fixed-header-nav 
-{
-	height: @defaultHeaderHeight;
-	//margin-right: @defaultHeaderSidePadding;
-	text-align: right;
-}
-
-.fixed-header-nav-link 
-{
-	.Clickable;
-	.HeadingLink;
-	line-height: @defaultHeaderHeight;
-	margin-left: 18px;
-	//margin-right: 9px;
-	color: @white;
-}
-
-/***********************
-		Footer
-************************/
-
-.footer-link
-{
-	.Clickable;
-	//width: 25%;
-	text-align: center;	
-	.fa
+	background-image: url("../images/desk-coffee.jpg");
+	background-position: top;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+	.row
 	{
-		.Clickable;
-		color: @primaryMedium;
-		width: 20%;
-		line-height: @defaultFooterHeight / 2;
-	}
-
-}
-
-.footer-text
-{
-	.FooterText;
-	//color: @secondaryTextWhite;
-	margin: auto;
-	line-height: @defaultFooterHeight / 2;
-	height: @defaultFooterHeight / 2;
-	width: 100%;
-}
-
-.footer-icons
-{
-	background-color: @divider;
-}
-
-.footer-copyright
-{
-	background-color: @primaryBackgroundDark;
-	color: @secondaryTextWhite;
-}
-
-
-/***********************
-		Sections
-************************/
-
-.section-block-text
-{
-	.BodyText;
-	color: @text;
-	margin-top: @defaultSectionHeaderMargin;
-}
-
-.section-header
-{
-	.SectionHeader;
-	text-align: left;
-	color: @text;
-}
-
-.section-sub-header
-{
-	.SectionSubHeader;
-	margin-top: @defaultSectionHeaderMargin / 2;
-	color: @text;
-}
-
-
-/***********************
-		Columns
-************************/
-
-.col
-{
-	display: block;
-	float:left;
-	margin: 0 0 0 0;
-}
-
-.span_2_of_2
-{
-	width: 100%; 
-}
-.span_1_of_2
-{
-	width: 50%;
-}
-
-
-
-/***********************
-		Grouping
-************************/
-
-.group:before,
-.group:after 
-{
-	content:"";
-	display:table;
-}
-
-.group:after 
-{
-	clear:both;
-}
-
-.group
-{
-	zoom:1; /* For IE 6/7 */ 
-	width: 95%;
-	margin: auto;
-}
-
-
-/***********************
-		Intro
-************************/
-
-#intro 
-{
-	background-color: @primaryBackgroundDark;
-	text-align: center;
-	.section-block 
-	{
-		border-style: none;
-		background-color: @primaryBackgroundDark;
-	}
-	
-}
-
-#intro-avatar 
-{
-	.Image("../../content/images/profile2.png", 9999px, 300px);
-	margin: auto;
-}
-
-#intro-tagline 
-{
-	.HeadingTagline;
-	color: @white;
-	margin-top: 75px;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
-
-
-/***********************
-		Posts
-************************/
-
-#details
-{
-	border-style: none;
-}
-
-.post-link
-{
-	.Clickable;
-}
-
-.post-date
-{
-	text-align: left;
-	color: @secondaryText;
-	.PostDate
-}
-
-.post-title
-{
-	.PostTitle;
-	.Clickable;
-	margin-top: 5px;
-	text-align: left;
-	color: @text;
-}
-
-.post-full-title
-{
-	.PostTitle;
-	margin-top: 5px;
-	text-align: left;
-	color: @text;
-}
-
-.post-text
-{
-	.BodyText;
-	margin-top: 5px;
-	text-align: left;
-	color: @text;
-}
-
-.post-full-text
-{
-	.BodyText;
-	margin-top: 5px;
-	padding-bottom: 50px;
-	text-align: left;
-	color: @text;
-	border-style: solid;
-	border-bottom-width: 1.5px;
-	border-bottom-color: @divider;
-}
-
-.post-navigation
-{
-	.Clickable;
-	.Button;
-	.ButtonText;
-	display: inline-block;
-	margin-top: 50px;
-}
-
-
-/***********************
-		Projects
-************************/
-
-.project-section
-{
-	text-align: left;
-}
-
-.project-title
-{
-	.PostTitle;
-	margin-top: 5px;
-	text-align: left;
-	color: @text;
-}
-
-.project-text
-{
-	.BodyText;
-	margin-top: 15px;
-	text-align: left;
-	color: @text;
-}
-
-.project-image
-{
-	width: 100%;
-	//height: 450px;
-	border-color: @primaryLight;
-	border-width: 2px;
-	border-style: solid;
-	object-fit: contain;
-	object-position: center;
-}
-
-.project-link
-{
-	.Clickable;
-}
-
-/***********************
-		Contact
-************************/
-
-#contact
-{
-	.fa
-	{
-		color:@primaryAccent;
-		//width: 20px;
-		font-size: 1em;
-	}
-
-	.section-block
-	{
-		border-style: none;
+		//margin-top: 20px;
 	}
 }
 
-
-/***********************
-		Links
-************************/
-
-#links
+.services-content
 {
-	background-color: @primaryBackgroundOff;
-
-	h3
+	@media screen and (max-width: @screen-sm)
 	{
-		color:@primaryDark;
+		p
+		{
+			text-align: left;
+			width: 85%;
+			margin-right: auto;
+			margin-left: auto;
+		}
 	}
-
-	a
+	@media screen and (min-width: 601px)
 	{
-		.Clickable;
-		color: @primaryDark;
-		text-align: center;
+		height: 415px;
 	}
-
-	#facebook
+	@media screen and (min-width: @screen-md)
 	{
-		.Image("../../content/images/facebook.png", 9999px, 75px);
-		margin: auto;
+		height: 350px;
 	}
-
-	#linkedin
+	@media screen and (min-width: @screen-lg)
 	{
-		.Image("../../content/images/linkedin.png", 9999px, 75px);
-		margin: auto;
-	}
-
-	#google
-	{
-		.Image("../../content/images/google.png", 9999px, 75px);
-		margin: auto;
-	}
-
-	#github
-	{
-		.Image("../../content/images/github.png", 9999px, 75px);
-		margin: auto;
-	}
-}
-
-.resume-link
-{
-	margin-top: 1.5em;
-	.Clickable;
-	.Button;
-	.ButtonText;
-	display: inline-block;
-}
-
-
-
-/***********************
-		Media Queries
-************************/
-
-@media screen and (max-width: 1024px)
-{
-
-	.section-block
-	{
-		width: 70%;
-	}
-
-	#intro-avatar 
-	{
-		.Image("../../content/images/profile2.png", 9999px, 250px);
-	}
-
-	#intro-tagline
-	{
-		font-size: 3.4em;
-	}
-
-}
-
-@media screen and (max-width: 768px)
-{
-	.fixed-header-shell 
-	{
-		position: relative;
-	}
-
-	.fixed-header-nav
-	{
-		text-align: center;
-		height: @defaultHeaderHeight / 3;
-	}
-
-	.fixed-header-nav-link
-	{
-		line-height: @defaultHeaderHeight / 3;
-		margin-left: 15px;
-		margin-right: 15px;
-	}
-
-	.fixed-header-logo
-	{
-		text-align: center;
-		line-height: @defaultHeaderHeight * 2 / 3;
-		height: @defaultHeaderHeight * 2 / 3;
-	}
-
-
-	.fixed-header-block
-	{
-		//padding-right: @smallSidePadding;
-		//padding-left: @smallSidePadding;
-	}
-
-	.sections-shell
-	{
-		margin-top: 0;
-	}
-
-	.section-block
-	{
-		padding-top: @smallSectionPadding;
-		padding-bottom: @smallSectionPadding;
-		width: 90%;
-	}
-
-	.section-block-text
-	{
-		.BodyTextSmall;
-		margin-top: @smallSectionHeaderMargin;
-	}
-
-	.section-header
-	{
-		.SectionHeaderSmall;
-	}
-
-	.section-sub-header
-	{
-		.SectionSubHeaderSmall;
-		margin-top: @smallSectionHeaderMargin / 2;
+		height: 325px;
 	}
 
 	.col
-	{ 
-		margin: 0 0 0 0%;
-	}
-
-	.group
 	{
-		width: 100%;
-	}
-
-	.span_2_of_2, 
-	.span_1_of_2, 
-	{
-		width: 100%;
-	}
-
-	#intro-avatar 
-	{
-		.Image("../../content/images/profile2.png", 9999px, 200px);
-	}
-
-	//Adjusting fonts for mobile interface
-
-	#intro-tagline 
-	{
-		font-size: 3em;
-	}
-
-	.project-title
-	{
-		.PostTitleSmall;
-	}
-
-	.project-text
-	{
-		.BodyTextSmall;
-	}
-
-	.post-date
-	{
-		.PostDateSmall;
-	}
-
-	.post-title
-	{
-		.PostTitleSmall;
-	}
-
-	.post-full-title
-	{
-		.PostTitleSmall;
-	}
-
-	.post-text
-	{
-		.BodyTextSmall;
-	}
-
-	.post-full-text
-	{
-		.BodyTextSmall;
+		height: 100%;
 	}
 }
-
-@media screen and (max-width: 480px)
+//////////////////////////////////////////////Contact//////////////////////////
+.contact-info
 {
-	#intro-tagline
+	margin-top: 10px;
+}
+
+.contact-card
+{
+	&:hover
 	{
-		font-size: 2em;
+		margin-top: -1px;
+		border-bottom-style: solid;
+		border-bottom-width: 2px;
+		border-bottom-color: #1de9b6;
 	}
 }
+
+
+/////////////////////////////////////////////Blog Posts/////////////////////////
+.post-summary
+{
+	text-decoration: none;
+}
+
+/////////////////////////////////////////////Portfolio/////////////////////////
+.portfolio-img
+{
+	width: 100%;
+	height: 500px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #cfd8dc;
+	border-radius: 2px;
+	background-position: left top;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#rpmedia-img
+{
+	background-image: url("../images/rpmedia.png");
+}
+#refman-img
+{
+	background-image: url("../images/refman.png");
+}
+#feedme-img
+{
+	background-image: url("../images/feedme.png");
+}
+#tigerregistration-img
+{
+	background-image: url("../images/tigerregistration.png");
+}
+#russellhospital-img
+{
+	background-image: url("../images/russellhospital.png");
+}
+/////////////////////////////////////////////Override/////////////////////////
+.page-footer
+{
+	margin-top: 0px !important;
+}
+
+.section
+{
+	padding-top: 35px;
+	padding-bottom: 35px;
+}
+
+.nav-links
+{
+	li.active-link
+	{
+		a{
+			color: #1de9b6;
+		}
+		
+	}
+}
+
+.no-margin-bottom
+{
+	margin-bottom: 0px;
+}
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+
 

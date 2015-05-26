@@ -13,49 +13,44 @@
 @serif: @robotoSlab;
 @heading: @openSans;
 
+@screen-sm:	600px;
+@screen-md: 992px;
+@screen-lg: 1200px;
+
 /************************
 		Mixins
 *************************/
 
 
-.HeadingLogo {
-	font-family: @normal;
-    font-weight: 400; 
-    font-size: 4.8em;
+
+.font-tagline {
+	font-weight: 100;
+	font-size: 3em;
 }
 
-.HeadingLink {
-	font-family: @condensed;
-	font-weight: 300;
+.font-body {
+    font-size: 1.3em;
+    line-height: 1.8;
+	@media screen and (max-width: @screen-sm)
+	{
+		font-size: 1.1em;
+	}
+}
+
+.font-body-small {
+    font-size: 1.2em;
+    line-height: 1.6;
+	@media screen and (max-width: @screen-sm)
+	{
+		font-size: 1em;
+	}
+}
+
+.promo-icon
+{
 	font-size: 1.8em;
 }
 
-.HeadingTagline {
-	font-family: @normal;
-	font-weight: 100;
-	font-size: 3.8em;
-}
-
-.BodyText {
-    font-family: @normal;
-    font-weight: 400; 
-    font-size: 1.8em;
-    line-height: 1.8;
-}
-
-.BodyTextSmall {
-    font-family: @normal;
-    font-weight: 400; 
-    font-size: 1.6em;
-    line-height: 1.6;
-}
-
-.ButtonText {
-    font-family: @condensed;
-    font-weight: 400; 
-    font-size: 2.0em;
-    line-height: 1.8;
-}
 
 .SectionHeader {
 	font-family: @condensed;

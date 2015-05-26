@@ -1,78 +1,74 @@
 <!DOCTYPE html>
 <html data-ng-app="app" >
 <head>
-  <title>Jordan Hurt</title>
-  <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1,user-scalable=no">
-  <meta name="theme-color" content="#344A5F">
-  <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,700' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Noto+Serif:100,300,400' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="support/css/main.css"/>
-  <link rel="stylesheet" href="support/assets/font-awesome-4.3.0/css/font-awesome.min.css"/>
-  <link rel="icon" type="image/png" href="content/images/favicon.png"/>
+	<title>Jordan Hurt</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+	<meta name="theme-color" content="#37474f"/>
+	<link rel="icon" type="image/png" href="support/images/favicon.png"/>
+	<!--<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">-->
+	<link rel="stylesheet" href="vendor/materialize/css/materialize.min.css"/>
+	<link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="support/css/main.css"/>
   
 </head>
-<body>
+<body class="slide-animate">
 
-	<div data-ng-include="'app/layout/shell.html'"></div>
+	<header id="topnav" class="navbar-fixed" data-ng-include="'app/layout/topnav.html'"></header>
+	<main data-ui-view></main>
+	<footer class="page-footer blue-grey darken-3" data-ng-include="'app/layout/footer.html'"></footer>
+
+	
+
+	<script src="vendor/jquery/jquery-2.1.3.min.js"></script>
+	<!--<script src="vendor/bootstrap/js/bootstrap.min.js"></script>-->
 
 
 	<!-- inject-vendor: js-->
-	<script src="support/js/angular.js"></script>
-    <script src="support/js/angular-animate.min.js"></script>
-    <script src="support/js/angular-route.min.js"></script>
-    <script src="support/js/angular-sanitize.min.js"></script>
-    <!-- endinject -->
+	<script src="vendor/angular/angular.js"></script>
+	<script src="vendor/angular/angular-animate.min.js"></script>
+	<script src="vendor/angular/angular-sanitize.min.js"></script>
+	<script src="vendor/angular/angular-ui-router.min.js"></script>
+
+	<!-- endinject -->
 
 
-    <!-- inject:js -->
-    <!-- Bootstrapping -->
-    <script src="app/app.module.js"></script>
+	<!-- inject:js -->
+	<!-- Bootstrapping -->
+	<script src="app/app.module.js"></script>
 
-    <!-- Reusable Blocks/Modules -->
-    <!--<script src="app/blocks/exception/exception.module.js"></script>
-    <script src="app/blocks/exception/exception-handler.provider.js"></script>
-    <script src="app/blocks/exception/exception.js"></script>
-    <script src="app/blocks/logger/logger.module.js"></script>
-    <script src="app/blocks/logger/logger.js"></script>-->
-    <script src="app/blocks/router/router.module.js"></script>
-    <script src="app/blocks/router/routehelper.js"></script>
+	<!-- blocks module -->
+	<script src="app/blocks/router/router.module.js"></script>
+	<script src="app/blocks/router/routehelper.js"></script>
 
-    <!-- core module -->
-    <script src="app/core/core.module.js"></script>
-    <!--<script src="app/core/constants.js"></script>-->
-    <script src="app/core/config.js"></script>
-    <script src="app/core/dataservice.js"></script>
-    <!--<script src="app/core/filters.js"></script>-->
+	<!-- blog module -->
+	<script src="app/blog/blog.module.js"></script>
+	<script src="app/blog/blog.route.js"></script>
+	<script src="app/blog/blog.js"></script>
+	<script src="app/blog/post.js"></script>
 
-    <!-- layout -->
-    <script src="app/layout/layout.module.js"></script>
-    <script src="app/layout/topnav.js"></script>
-    <!--<script src="app/layout/shell.js"></script>-->
+	<!-- core module -->
+	<script src="app/core/core.module.js"></script>
+	<script src="app/core/core.route.js"></script>
+	<script src="app/core/dataservice.js"></script>
+	<script src="app/core/mockserver.js"></script>
 
-    <!--widgets-->
+	<!-- home module -->
+	<script src="app/home/home.module.js"></script>
+	<script src="app/home/home.route.js"></script>
+	<script src="app/home/home.js"></script>
+
+	<!-- portfolio module -->
+	<script src="app/portfolio/portfolio.module.js"></script>
+	<script src="app/portfolio/portfolio.route.js"></script>
+	<script src="app/portfolio/portfolio.js"></script>
+
+	<!-- widgets module -->
+	<script src="app/widgets/widgets.module.js"></script>
+	<script src="app/widgets/scroller.js"></script>
+
+	<script src="vendor/materialize/js/materialize.min.js"></script>
+	<script src="vendor/angular-materialize/angular-materialize.js"></script>
 
 
-    <!-- about -->
-    <script src="app/about/about.module.js"></script>
-    <script src="app/about/config.route.js"></script>
-    <script src="app/about/about.js"></script>
-
-    <!--posts module-->
-    <script src="app/posts/posts.module.js"></script>
-    <script src="app/posts/config.route.js"></script>
-    <script src="app/posts/posts.js"></script>
-    <script src="app/posts/postdetails.js"></script>
-
-    <!--work module-->
-    <script src="app/work/work.module.js"></script>
-    <script src="app/work/config.route.js"></script>
-    <script src="app/work/work.js"></script>
-
-    <!--resume module-->
-    <script src="app/resume/resume.module.js"></script>
-    <script src="app/resume/config.route.js"></script>
-    <!-- endinject -->
+	<!-- endinject -->
 </body>

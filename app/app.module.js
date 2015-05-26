@@ -1,22 +1,12 @@
-(function() {
-    'use strict';
+(function () {
+	'use strict';
 
-    angular.module('app', [
-        /*
-         * Everybody has access to these.
-         * We could place these under every feature area,
-         * but this is easier to maintain.
-         */ 
-        'app.core',
-
-        /*
-         * Feature areas
-         */
-        'app.about',
-        'app.layout',
-        'app.posts',
-        'app.work',
-        'app.resume'
-    ]);
-
+	angular.module('app', [
+		'app.core',
+		'blocks.router',
+		'app.home',
+		'app.blog',
+		'app.portfolio',
+		'app.widgets'
+	]);
 })();

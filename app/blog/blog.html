@@ -1,0 +1,14 @@
+<div class="container">
+	<div data-ng-repeat="item in vm.posts.items">
+		<article class="section" id="{{item.id}}">
+			<a class="post-summary" ui-sref="post({postID: item.id})">
+				<h5 class="teal-text text-accent-3">{{item.published}}</h5>
+				<h4 class="header light black-text" ng-bind-html="item.title"></h4>
+				<p class="black-text light font-body-small" ng-bind-html="item.snippet">...</p>
+			</a>
+			<a class="waves-effect waves-light blue-grey lighten-2 btn no-shadow white-text" ui-sref="post({postID: item.id})">More</a>
+		</article>
+		<div class="divider"></div>
+	</div>
+</div>
+
