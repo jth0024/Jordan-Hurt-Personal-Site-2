@@ -17,10 +17,12 @@
 
 
 		function cleanPost () {
+			console.log(post);
 			var cleanedPost = {
 				published: post.published.slice(0, vm.dateEnd),
 				title: post.title,
-				content: $sanitize(post.content)
+				content: $sanitize(post.content),
+				label: post.labels[0]
 			};
 			vm.post = cleanedPost;      
 		}

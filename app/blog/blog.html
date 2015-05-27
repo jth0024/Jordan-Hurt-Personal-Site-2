@@ -1,8 +1,20 @@
+<div class="section blog-header">
+	<div class="overlay"></div>
+	<div class="container elevate">
+		<div class="row">
+			<div class="col s12 center">
+				<h1 class="hide-on-small-only header light white-text">Blog</h1>
+				<h2 class="hide-on-med-and-up header light white-text">Blog</h2>
+				<h5 class="header light white-text">my <i>recent</i> writing</h5>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="container">
 	<div data-ng-repeat="item in vm.posts.items">
 		<article class="section" id="{{item.id}}">
 			<a class="post-summary" ui-sref="post({postID: item.id})">
-				<h5 class="teal-text text-accent-3">{{item.published}}</h5>
+				<h6 class="font-post-data uppercase light teal-text text-accent-4">{{item.published}} on {{item.labels[0]}}</h6>
 				<h4 class="header light black-text" ng-bind-html="item.title"></h4>
 				<p class="black-text light font-body-small" ng-bind-html="item.snippet">...</p>
 			</a>
