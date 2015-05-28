@@ -26,8 +26,8 @@
 		<div class="row">
 			<div class="col s12">
 				<h3 class="header light">About</h3>
-				<p class="light font-body flow-text">My name is Jordan Hurt, and I'm an experienced web developer with an eye for visual design.  I graduated from Auburn University in 2015 with a Bachelor of Science in Mechanical Engineering and a Minor in Computer Science. I held various intern and co-op positions between school semesters, so I have practical experience in both engineering and software practices. Currently, I'm employed as a UX Analyst by Intergraph in Huntsville, Alabama. As one of my many hobbies, however, I provide free-lance design and development services to a variety of clients.</p>
-				<a class="waves-effect waves-light blue-grey lighten-2 btn no-shadow white-text">Résumé</a>
+				<p class="light font-body flow-text">My name is Jordan Hurt, and I'm an experienced web developer with an eye for visual design.  I graduated from Auburn University in 2015 with a Bachelor of Science in Mechanical Engineering and a Minor in Computer Science. I held various intern and co-op positions between school semesters, so I have practical experience in both engineering and software practices. Currently, I'm employed as a UX Analyst by Intergraph in Huntsville, Alabama. In my spare time, however, I provide free-lance design and development services to a variety of clients.</p>
+				<a href="content/Jordan_Hurt_Resume.docx" class="waves-effect waves-light blue-grey lighten-2 btn no-shadow white-text">Résumé</a>
 			</div>
 		</div>
 	</div>
@@ -36,21 +36,108 @@
 	<!-- Services Section -->
 <div class="section services-header">
 	<div class="overlay"></div>
-	<div class="container elevate">
-		<div class="row">
-			<div class="col s12 center">
-				<h1 class="hide-on-small-only header light white-text">My Services</h1>
-				<h2 class="hide-on-med-and-up header light white-text">My Services</h2>
-				<h5 class="header light white-text">at an <i>affordable</i> rate</h5>
+	<div class="elevate">
+		<div class="row" data-ng-show="vm.formIsOpen">
+			<div class="col s12 left-align close-button">
+				<a data-ng-click="vm.cancelForm()"><i class="mdi-navigation-cancel small white-text"></i></a>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col s12 center">
-				<a class="btn waves-effect waves-light teal accent-3">Get Quote</a>
+		<div class="container">
+			<form data-ng-show="vm.formIsOpen" class="col s12 quote-form">
+				<div class="row">
+					<div class="input-field col s6">
+						<input id="first_name" type="text" class="white-text validate">
+						<label for="first_name" class="white-text">First Name</label>
+					</div>
+					<div class="input-field col s6">
+						<input id="last_name" type="text" class="validate">
+						<label for="last_name">Last Name</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s6">
+						<input id="first_name" type="text" class="validate">
+						<label for="first_name">Email</label>
+					</div>
+					<div class="input-field col s6">
+						<input id="last_name" type="text" class="validate">
+						<label for="last_name">Telephone</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<textarea id="textarea1" class="materialize-textarea"></textarea>
+						<label for="textarea1">Project Description</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12 right-align">
+						<a class="btn small no-shadow teal accent-3">Submit</a>
+					</div>
+				</div>
+			</form>
+			<div data-ng-show="!vm.formIsOpen">
+				<div class="row">
+					<div class="col s12 center">
+						<h1 class="hide-on-small-only header light white-text">My Services</h1>
+						<h2 class="hide-on-med-and-up header light white-text">My Services</h2>
+						<h5 class="header light white-text">at an <i>affordable</i> rate</h5>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12 center">
+						<a data-ng-click="vm.openForm()" class="btn waves-effect waves-light teal accent-3">Get Quote</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<!-- Quote Form 
+<div class="section-small" data-ng-show="vm.formIsOpen">
+	<div class="row">
+		<div class="col s12 left-align">
+			<a data-ng-click="vm.cancelForm()"><i class="mdi-navigation-cancel small blue-grey-text text-darken-3"></i></a>
+		</div>
+	</div>
+	<div class="container">
+		<form class="col s12">
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="first_name" type="text" class="validate">
+					<label for="first_name">First Name</label>
+				</div>
+				<div class="input-field col s6">
+					<input id="last_name" type="text" class="validate">
+					<label for="last_name">Last Name</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="first_name" type="text" class="validate">
+					<label for="first_name">Email</label>
+				</div>
+				<div class="input-field col s6">
+					<input id="last_name" type="text" class="validate">
+					<label for="last_name">Telephone</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<textarea id="textarea1" class="materialize-textarea"></textarea>
+					<label for="textarea1">Project Description</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12 right-align">
+					<a class="btn small no-shadow teal accent-3">Submit</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+-->
+
 <div class="row no-margin-bottom services-content">
 	<div class="col s12 m6 blue-grey lighten-2">
 		<div class="section center">

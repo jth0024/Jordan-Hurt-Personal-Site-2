@@ -1,24 +1,30 @@
 (function() {
-    'use strict';
+	'use strict';
 
-    angular
-        .module('app.home')
-        .controller('Home', Home);
-        
+	angular
+		.module('app.home')
+		.controller('Home', Home);
+		
 
-    function Home($uiViewScroll) {
-        var vm = this;
-        vm.scrollStart = scrollStart;
-        activate();
+	function Home($uiViewScroll) {
+		var vm = this;
+		vm.openForm = openForm;
+		vm.cancelForm = cancelForm;
+		vm.formIsOpen = false;
+		activate();
 
-        function activate() {
-            
-        }
+		function activate() {
+			
+		}
 
-        function scrollStart()
-        {
-            $uiViewScroll($("#about"));
-        }
+		function openForm()
+		{
+			vm.formIsOpen = true;
+		}
 
-    }
+		function cancelForm()
+		{
+			vm.formIsOpen = false;
+		}
+	}
 })();
