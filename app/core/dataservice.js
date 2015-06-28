@@ -9,6 +9,7 @@
 
 		var service = {
 			getBlogPosts: getBlogPosts,
+			sendQuoteData: sendQuoteData
 		};
 
 		return service;
@@ -48,6 +49,24 @@
 		function getBlogPosts() {
 			var url = 'https://www.googleapis.com/blogger/v3/blogs/7831823033313363717/posts?key=AIzaSyBntQw8Opl1Zu6vIB1pgAmaqHdpd5RiYtI';
 			return sendGetRequest(url);
+		}
+
+		function sendQuoteData(data) {
+			var url = '../php/index.php';
+            var message = {
+                first_name: data.first_name,
+                last_name: data.last_name,
+                email: data.email,
+                telephone: data.telephone,
+                comments: data.comments
+            };
+            console.log(message);
+			/*return $http({
+				method: 'POST',
+				url: url,
+				data: "message=" + message,
+			})*/
+			return sendPostRequest(message, url);
 		}
 
 

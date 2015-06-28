@@ -43,36 +43,36 @@
 			</div>
 		</div>
 		<div class="container">
-			<form data-ng-show="vm.formIsOpen" class="col s12 quote-form">
+			<form name="quoteForm" data-ng-submit="vm.submitForm(formData)" data-ng-show="vm.formIsOpen" class="col s12 quote-form">
 				<div class="row">
 					<div class="input-field col s6">
-						<input id="first_name" type="text" class="white-text validate">
-						<label for="first_name" class="white-text">First Name</label>
+						<input data-ng-model="formData.first_name" id="first_name" type="text" class="validate">
+						<label for="first_name">First Name</label>
 					</div>
 					<div class="input-field col s6">
-						<input id="last_name" type="text" class="validate">
+						<input data-ng-model="formData.last_name" id="last_name" type="text" class="validate">
 						<label for="last_name">Last Name</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s6">
-						<input id="first_name" type="text" class="validate">
-						<label for="first_name">Email</label>
+						<input data-ng-model="formData.email" id="email" type="text" class="validate">
+						<label for="email">Email</label>
 					</div>
 					<div class="input-field col s6">
-						<input id="last_name" type="text" class="validate">
-						<label for="last_name">Telephone</label>
+						<input data-ng-model="formData.telephone" id="telephone" type="text" class="validate">
+						<label for="telephone">Telephone</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
-						<textarea id="textarea1" class="materialize-textarea"></textarea>
-						<label for="textarea1">Project Description</label>
+						<textarea data-ng-model="formData.comments" id="comments" class="materialize-textarea"></textarea>
+						<label for="comments">Project Description</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col s12 right-align">
-						<a class="btn small no-shadow teal accent-3">Submit</a>
+						<input type="submit" value="Submit" class="btn small teal accent-3"></input>
 					</div>
 				</div>
 			</form>

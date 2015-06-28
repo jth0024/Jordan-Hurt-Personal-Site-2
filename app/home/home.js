@@ -6,10 +6,11 @@
 		.controller('Home', Home);
 		
 
-	function Home($uiViewScroll) {
+	function Home(dataservice) {
 		var vm = this;
 		vm.openForm = openForm;
 		vm.cancelForm = cancelForm;
+		vm.submitForm = submitForm;
 		vm.formIsOpen = false;
 		activate();
 
@@ -25,6 +26,19 @@
 		function cancelForm()
 		{
 			vm.formIsOpen = false;
+		}
+
+		function submitForm(formData)
+		{
+			dataservice.sendQuoteData(formData).then(function(response) {
+				if(response.error == 'true') {
+					Materialize.toast('<div class="red-text text-darken-1">Error: Missing info!</div>', 2000);
+				}
+				else {
+					vm.formIsOpen = false;
+					Materialize.toast('<div class="teal-text text-accent-3">Sent request!</div>', 2000);
+				}
+			});
 		}
 	}
 })();
